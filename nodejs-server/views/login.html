@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!-- setting favicon -->
+    <link rel="shortcut icon" href="/public/favicon.ico">
+    <link rel="bookmark" href="/public/favicon.ico">
+
+    <!-- import bootstrap jquery font-awesome-->
+    <link rel="stylesheet" href="/libs/bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/libs/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <!-- include scripts -->
+    <link rel="stylesheet/less" href="/scripts/login/index.less">
+    <!-- <link rel="stylesheet" href="/scripts/login/dist/index.css"> -->
+    <script src="/scripts/login/index.js"></script>
+
+    <!-- include less.js -->
+    <script src="/libs/less/less.min.js"></script>
+</head>
+
+<body>
+    <div id="pipeline" style="display: none;">{{pipe_msg}}</div>
+    <div class="container">
+        <div class="row">
+            <!-- login -->
+            <div id="login" class="block col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+                <form id="login-form" action="/login" method="POST" class="form-horizontal" role="form"
+                    autocomplete="off">
+                    <h2 class="text-center">Login</h2>
+                    <div class="form-group">
+                        <div id="login-err-msg" class="err-msg col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">{{login_err_msg}}</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-uname" id="login-uname-lab"
+                            class="control-label col-lg-12 col-lg-offset-0 col-md-2 col-md-offset-1 col-sm-2 col-xs-12">Username</label>
+                        <div id="login-uname-wrap" class="col-lg-12 col-md-7 col-sm-8 col-xs-12">
+                            <input type="text" name="username" id="login-uname" class="form-control" maxlength="30"
+                                placeholder="Enter Username" />
+                        </div>
+                        <label for="login-uname" id="login-uname-cnt"
+                            class="control-label col-md-2 col-sm-2 col-xs-2"></label>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="login-pwd" id="login-pwd-lab" class="control-label col-lg-offset-0 col-lg-12 col-md-2 col-md-offset-1 col-sm-2 col-xs-12">Password</label>
+                        <div id="login-pwd-wrap" class="col-lg-12 col-md-7 col-sm-8 col-xs-12">
+                            <input type="password" name="pwd" id="login-pwd" class="form-control" maxlength="50"
+                                placeholder="Enter Password" />
+                            <i class="fa fa-eye-slash" id="login-pwd-indi"
+                                onclick="toggle_input_type(this, '#login-pwd')"></i>
+                        </div>
+                        <label for="login-pwd" id="login-pwd-cnt" class="control-label col-md-2 col-sm-2 col-xs-2"></label>
+                    </div>
+                    <div class="form-group">
+                        <span onclick="switch_block()"
+                            class="col-md-12 text-center col-sm-12 col-xs-12">No
+                            account yet?
+                            Sign up!</span>
+                    </div>
+                    <div class="form-group">
+                        <!-- <input type="submit" value="Submit"> -->
+                        <div class="btn btn-primary col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2"
+                            onclick="document.getElementById('login-form').submit()">Submit</div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- signup -->
+            <div id="signup" class="block col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+                <form id="signup-form" action="/signup" method="POST" class="form-horizontal" role="form">
+                    <h2 class="text-center">Sign Up</h2>
+                    <div class="form-group">
+                        <!-- <div id="signup-err-msg" class="alert alert-danger col-md-8 col-md-offset-2">{{signup-err-msg}}</div> -->
+                        <div id="signup-err-msg" class="err-msg col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">{{signup_err_msg}}</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-uname" id="signup-uname-lab"
+                            class="control-label col-lg-12 col-lg-offset-0 col-md-2 col-md-offset-1 col-sm-2 col-xs-12">Username</label>
+                        <div id="signup-uname-wrap" class="col-lg-12 col-md-7 col-sm-8 col-xs-12">
+                            <input type="text" name="username" id="signup-uname" class="form-control" maxlength="30"
+                                placeholder="Enter Username" />
+                        </div>
+                        <label for="signup-uname" id="signup-uname-cnt" class="control-label col-md-2 col-sm-2 col-xs-2"></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-pwd" id="signup-pwd-lab" class="control-label col-lg-offset-0 col-lg-12 col-md-2 col-md-offset-1 col-sm-2 col-xs-12">Password</label>
+                        <div id="signup-pwd-wrap" class="col-lg-12 col-md-7 col-sm-8 col-xs-12">
+                            <input type="password" name="pwd" id="signup-pwd" class="form-control" maxlength="50"
+                                placeholder="Enter Password" />
+                            <i class="fa fa-eye-slash" id="signup-pwd-indi"
+                                onclick="toggle_input_type(this, '#signup-pwd')"></i>
+                        </div>
+                        <label for="signup-pwd" id="signup-pwd-cnt" class="control-label col-md-2 col-sm-2 col-xs-2"></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-pwd-1" id="signup-pwd-1-lab" class="control-label col-lg-offset-0 col-lg-12 col-md-2 col-md-offset-1 col-sm-2 col-xs-12">Pwd Confirm</label>
+                        <div id="signup-pwd-1-wrap" class="col-lg-12 col-md-7 col-sm-8 col-xs-12">
+                            <input type="password" id="signup-pwd-1" class="form-control" maxlength="50"
+                                placeholder="Confirm Password" />
+                            <i class="fa fa-eye-slash" id="signup-pwd-1-indi"
+                                onclick="toggle_input_type(this, '#signup-pwd-1')"></i>
+                        </div>
+                        <label for="signup-pwd-1" id="signup-pwd-1-cnt" class="control-label col-md-2 col-sm-2 col-xs-2"></label>
+                    </div>
+                    <div class="form-group">
+                        <span onclick="switch_block()" class="col-md-12 text-center col-sm-12 col-xs-12">Accidental Click?
+                            Go back to login!</span>
+                    </div>
+                    <div class="form-group">
+                        <div class="btn btn-primary col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2" onclick="signup_submit()">Submit</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+body {
+  overflow-x: hidden;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #969696;
+  border-radius: 2px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #7a7a7a;
+}
+#toggle-pwd-block {
+  margin-top: 5%;
+}
+#pwd-form-wrap,
+#form-wrap {
+  border-radius: 10px;
+  background-color: white;
+}
+#pwd-form-wrap i.fa,
+#form-wrap i.fa {
+  color: gray;
+  display: inline;
+  position: absolute;
+  float: right;
+  right: 25px;
+  top: 10px;
+}
+#pwd-form-wrap #opwd,
+#form-wrap #opwd,
+#pwd-form-wrap #npwd,
+#form-wrap #npwd,
+#pwd-form-wrap #npwd-1,
+#form-wrap #npwd-1,
+#pwd-form-wrap #bb-pwd,
+#form-wrap #bb-pwd,
+#pwd-form-wrap #pt-pwd,
+#form-wrap #pt-pwd,
+#pwd-form-wrap #mb-pwd,
+#form-wrap #mb-pwd,
+#pwd-form-wrap #kog-pwd,
+#form-wrap #kog-pwd {
+  padding-right: 32px;
+}
+#pwd-form-wrap #opwd-cnt,
+#form-wrap #opwd-cnt,
+#pwd-form-wrap #npwd-cnt,
+#form-wrap #npwd-cnt,
+#pwd-form-wrap #npwd-1-cnt,
+#form-wrap #npwd-1-cnt,
+#pwd-form-wrap #bb-pwd-cnt,
+#form-wrap #bb-pwd-cnt,
+#pwd-form-wrap #bb-uname-cnt,
+#form-wrap #bb-uname-cnt,
+#pwd-form-wrap #pt-pwd-cnt,
+#form-wrap #pt-pwd-cnt,
+#pwd-form-wrap #pt-uname-cnt,
+#form-wrap #pt-uname-cnt,
+#pwd-form-wrap #mb-pwd-cnt,
+#form-wrap #mb-pwd-cnt,
+#pwd-form-wrap #mb-uname-cnt,
+#form-wrap #mb-uname-cnt,
+#pwd-form-wrap #kog-pwd-cnt,
+#form-wrap #kog-pwd-cnt,
+#pwd-form-wrap #kog-uname-cnt,
+#form-wrap #kog-uname-cnt {
+  padding-top: 8px;
+}
+#pwd-form-wrap span,
+#form-wrap span {
+  color: #2697bd;
+  transition: 0.1s ease-in-out;
+}
+#pwd-form-wrap span:hover,
+#form-wrap span:hover {
+  color: #1f7b99;
+  text-decoration: underline;
+}
+#pwd-form-wrap span:active,
+#form-wrap span:active {
+  transform: translateY(3px);
+}
+@media screen and (max-width: 768px) {
+  body {
+    padding: 0 30px;
+  }
+  #opwd-cnt,
+  #npwd-cnt,
+  #npwd-1-cnt,
+  #bb-pwd-cnt,
+  #bb-uname-cnt,
+  #pt-pwd-cnt,
+  #pt-uname-cnt,
+  #mb-pwd-cnt,
+  #mb-uname-cnt,
+  #kog-pwd-cnt,
+  #kog-uname-cnt {
+    text-align: center;
+  }
+}
+@media screen and (min-width: 768px) {
+  #opwd-cnt,
+  #npwd-cnt,
+  #npwd-1-cnt,
+  #bb-pwd-cnt,
+  #bb-uname-cnt,
+  #pt-pwd-cnt,
+  #pt-uname-cnt,
+  #mb-pwd-cnt,
+  #mb-uname-cnt,
+  #kog-pwd-cnt,
+  #kog-uname-cnt {
+    text-align: left;
+  }
+}

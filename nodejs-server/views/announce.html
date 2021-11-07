@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="never">
+    <title></title>
+    <!-- import libs -->
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/libs/bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="/libs/vue/vue.js"></script>
+
+    <!-- include scripts -->
+    <link rel="stylesheet/less" href="/scripts/announce/{{type}}.less">
+    <script src="/scripts/announce/utility.js"></script>
+    <script src="/scripts/announce/index.js"></script>
+    <link rel="stylesheet/less" href="/scripts/announce/index.less">
+
+    <!-- finally, include less.js -->
+    <script src="/libs/less/less.js"></script>
+</head>
+
+<body>
+    <div id="pipeline" style="display: none;">{{type}}</div>
+    <div id="original-url" style="display: none;">{{original_url}}</div>
+    <div id="base-url" style="display: none;">{{base_url}}</div>
+    <div class="alert alert-warning">
+        Synchronizing... Do NOT refresh
+    </div>
+    <div class="container">
+        <h2 onclick="redir_homepage()">{{title}}</h2>
+        <div class="btn btn-default" id="sync-btn" onclick="synchro()">
+            <i class="fa fa-wrench"></i>
+            <span class="visible-md-inline-block visible-lg-inline-block">Sync</span>
+        </div>
+        <!-- <div class="btn btn-default" onclick="redir_homepage()">
+            <i class="fa fa-home"></i>
+            <span class="visible-md-inline-block visible-lg-inline-block">Goto Home Page</span>
+        </div> -->
+        <ul id="list">
+            <li v-for="ann in announcements">
+                <a onclick="redir_original()">Go to original</a>
+                <div class="announcement" v-html="ann"></div>
+            </li>
+        </ul>
+        <div id="refresh-spinner">
+            <i class="fa fa-spinner fa-pulse fa-3x"></i>
+        </div>
+        <div id="stop-label"></div>
+    </div>
+</body>
+
+</html>

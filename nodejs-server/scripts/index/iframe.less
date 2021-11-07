@@ -1,0 +1,16 @@
+@import 'main';
+@import 'top_bar';
+
+iframe {
+    border: none;
+    position: absolute;
+    top: @bar_height;
+    left: 0;
+
+    width: 100vw;
+    height: calc(100vh - @bar_height);
+
+    overflow: scroll;
+
+    transition: 0.4s;
+}

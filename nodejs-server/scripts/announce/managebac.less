@@ -1,0 +1,81 @@
+.announcement {
+    display: flex;
+    justify-content: space-between;
+
+    .agenda {
+        box-sizing: border-box;
+        width: 80%;
+        border: 1px solid gray;
+        border-right: none;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        padding: 12px;
+
+        .date-badge {
+            text-align: center;
+            width: 45px;
+            display: inline-block;
+
+            .month {
+                height: 20px;
+                padding-top: 2px;
+                font-size: 12px;
+                background-color: #fc5255;
+                text-transform: uppercase;
+                border-top-left-radius: 3px;
+                border-top-right-radius: 3px;
+                color: white;
+            }
+
+            .day {
+                height: 28px;
+                font-size: 14px;
+                padding: 4px;
+                box-sizing: border-box;
+                border: 1px solid gray;
+                border-top: none;
+                border-bottom-right-radius: 3px;
+                border-bottom-left-radius: 3px;
+            }
+        }
+
+        .details {
+            display: inline-block;
+
+            .title {
+                margin: 0;
+                font-size: 15px;
+                margin-bottom: 5px;
+            }
+
+            .labels-set {
+                display: inline-block;
+            }
+
+            .flex.flex-start {
+                display: inline-block;
+
+                .fi {
+                    display: inline-block;
+                    width: 12px;
+                    height: 12px;
+                }
+
+                .due {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+    .assessment {
+        width: 20%;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid gray;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+}

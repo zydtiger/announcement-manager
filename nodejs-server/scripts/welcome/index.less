@@ -1,0 +1,42 @@
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(150, 150, 150);
+    border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(122, 122, 122);
+}
+
+#welcome-block {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    #welcome-title, #welcome-subtitle {
+        width: 500px;
+        animation: spread_text 1.5s ease forwards;
+    }
+}
+
+@keyframes spread_text {
+    0% {
+        letter-spacing: 0;
+    }
+    
+    100% {
+        letter-spacing: 5px;
+    }
+}

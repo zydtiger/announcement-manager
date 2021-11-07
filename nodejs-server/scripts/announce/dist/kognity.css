@@ -1,0 +1,53 @@
+.text-bold {
+  margin-left: 5px;
+  font-weight: bold;
+}
+.screenreader-only {
+  display: none;
+}
+.KogBadge {
+  display: inline-block;
+  padding: 3px 7px;
+  width: auto;
+  color: gray;
+  background-color: #ececec;
+  border: 1px solid #e7e7e7;
+  border-radius: 20px;
+}
+.KogBadge div {
+  display: inline-block;
+}
+.flexContainer {
+  display: inline-block;
+  width: 100%;
+}
+.margin-top-fine-1 {
+  margin: 5px;
+}
+.margin-top-fine-2 {
+  margin-top: 5px;
+}
+.KogButton {
+  display: block;
+  margin-left: 50%;
+  color: #505050;
+  transform: translateX(-50%);
+  border: 1px solid gray;
+  box-sizing: border-box;
+  padding: 8px 30px;
+  border-radius: 3px;
+  text-align: center;
+  width: 40%;
+}
+.KogButton:hover {
+  background-color: #ececec;
+  color: #505050;
+}
+.KogButton:active {
+  background-color: #dfdfdf;
+}
+.KogButton--primary {
+  border: none;
+  color: white;
+  background-color: #0a6d94;
+}

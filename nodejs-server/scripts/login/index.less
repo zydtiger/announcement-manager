@@ -1,0 +1,92 @@
+body {
+    background-color: rgb(221, 221, 221);
+    overflow: hidden;
+}
+
+.block {
+    margin-top: 40vh;
+    transform: translateY(-50%);
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 2px 2px 5px 3px rgb(116, 116, 116);
+    transition: 0.3s ease-in-out;
+
+    .err-msg {
+        border-radius: 5px;
+        border: 1px solid rgb(190, 1, 1);
+        background-color: rgba(238, 105, 105, 0.397);
+    }
+
+    &:hover {
+        transform: translateY(calc(-50% + -5px));
+        box-shadow: 2px 4px 5px 3px rgb(116, 116, 116);
+    }
+
+    i.fa {
+        color: gray;
+        display: inline;
+        position: absolute;
+        float: right;
+        right: 25px;
+        top: 10px;
+    }
+
+    // inline style > id > class > tag
+    // use id here to override bootstrap class style
+    #login-pwd, #signup-pwd, #signup-pwd-1 {
+        padding-right: 32px;
+    }
+    #login-pwd-cnt,
+    #login-uname-cnt,
+    #signup-pwd-cnt,
+    #signup-uname-cnt,
+    #signup-pwd-1-cnt {
+        padding-left: 0;
+        padding-top: 8px;
+    }
+
+    span {
+        color: rgb(38, 151, 189);
+        transition: 0.1s ease-in-out;
+
+        &:hover {
+            color: rgb(31, 123, 153);
+            text-decoration: underline;
+        }
+
+        &:active {
+            transform: translateY(3px);
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #login-pwd-lab,
+    #login-uname-lab,
+    #signup-pwd-lab,
+    #signup-uname-lab,
+    #signup-pwd-1-lab {
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #login-pwd-cnt,
+    #login-uname-cnt,
+    #signup-pwd-cnt,
+    #signup-uname-cnt,
+    #signup-pwd-1-cnt {
+        text-align: center;
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    #login-pwd-cnt,
+    #login-uname-cnt,
+    #signup-pwd-cnt,
+    #signup-uname-cnt,
+    #signup-pwd-1-cnt {
+        text-align: left;
+    }
+}

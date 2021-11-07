@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!-- setting favicon -->
+    <link rel="shortcut icon" href="/public/favicon.ico">
+    <link rel="bookmark" href="/public/favicon.ico">
+
+    <!-- import bootstrap jquery font-awesome-->
+    <link rel="stylesheet" href="/libs/bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/libs/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <!-- include scripts -->
+    <link rel="stylesheet/less" href="/scripts/settings/iframe.less">
+    <script src="/scripts/settings/index.js"></script>
+
+    <!-- include less.js -->
+    <script src="/libs/less/less.min.js"></script>
+</head>
+
+<script>
+    // $().slideToggle
+</script>
+
+<body>
+    <div id="pipeline" style="display: none;">{{pt_lang}}</div>
+    <div id="chg-pwd" style="display: none;">{{chg_pwd_enabled}}</div>
+
+    <div class="containter">
+        <div class="row">
+            <div class="btn-link text-center" id="toggle-pwd-block" onclick="toggle_pwd_block()">Change Password</div>
+            
+            <div id="pwd-form-wrap" class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1" style="display: none;">
+                <form action="/chg_pwd" method="POST" class="form-horizontal" role="form">
+                    <h1 class="text-center">
+                        Change Password
+                    </h1>
+
+                    <h3>Enter old and new passwords</h3>
+
+                    <div class="form-group">
+                        <label for="opwd"
+                            class="control-label col-md-2 col-md-offset-1 col-sm-2 col-xs-12">Original</label>
+                        <div id="opwd-wrap" class="col-md-7 col-sm-8 col-xs-12">
+                            <input type="password" name="opwd" id="opwd" class="form-control" maxlength="30"
+                                placeholder="Enter Original">
+                            <i class="fa fa-eye-slash" id="opwd-indi" onclick="toggle_input_type(this, '#opwd')"></i>
+                        </div>
+                        <label for="opwd" id="opwd-cnt" class="control-label col-md-2 col-sm-2 col-xs-2"></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="npwd" class="control-label col-md-2 col-md-offset-1 col-sm-2 col-xs-12">New</label>
+                        <div id="npwd-wrap" class="col-md-7 col-sm-8 col-xs-12">
+                            <input type="password" name="npwd" id="npwd" class="form-control" maxlength="30"
+                                placeholder="Enter New">
+                            <i class="fa fa-eye-slash" id="npwd-indi" onclick="toggle_input_type(this, '#npwd')"></i>
+                        </div>
+                        <label for="npwd" id="npwd-cnt" class="control-label col-md-2 col-sm-2 col-xs-2"></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="npwd-1"
+                            class="control-label col-md-2 col-md-offset-1 col-sm-2 col-xs-12">Confirmed</label>
+                        <div id="npwd-1-wrap" class="col-md-7 col-sm-8 col-xs-12">
+                            <input type="password" name="npwd-1" id="npwd-1" class="form-control" maxlength="30"
+                                placeholder="Enter New Confirmed">
+                            <i class="fa fa-eye-slash" id="npwd-1-indi"
+                                onclick="toggle_input_type(this, '#npwd-1')"></i>
+                        </div>
+                        <label for="npwd-1" id="npwd-1-cnt" class="control-label col-md-2 col-sm-2 col-xs-2"></label>
+                    </div>
+                    <div class="form-group">
+                        <div class="btn btn-primary col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2"
+                            onclick="submit_form(0)">Change Password</div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- accounts binding -->
+            <div id="form-wrap" class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+                <form action="{{form_action}}" method="POST" class="form-horizontal" role="form">
+                    <h1 class="text-center">
+                        Account Setup
+                        <small style="font-size: 16px;">{{subtitle}}</small>
+                    </h1>
+
+                    <h3>Blackboard</h3>
+                    <div class="form-group">
+                        <label for="bb-uname"
+                            class="control-label col-md-2 col-md-offset-1 col-sm-2 col-xs-12">Username</label>
+                        <div id="bb-uname-wrap" class="col-md-7 col-sm-8 col-xs-12">
+                            <input type="text" name="bb-uname" id="bb-uname" class="form-control" maxlength="30"
+                                placeholder="Enter Username" value="{{accounts.bb_uname}}" />
+                        </div>
+                        <label for="bb-uname" id="bb-uname-cnt"
+                            class="control-label col-md-2 col-sm-2 col-xs-2"></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="bb-pwd"
+                            class="control-label col-md-2 col-md-offset-1 col-sm-2 col-xs-12">Password</label>
+                        <div id="bb-pwd-wrap" class="col-md-7 col-sm-8 col-xs-12">
+                            <input type="password" name="bb-pwd" id="bb-pwd" class="form-control" maxlength="50"
+                                placeholder="Enter Password" value="{{accounts.bb_pwd}}" />
+                            <i class="fa fa-eye-slash" id="bb-pwd-indi"
+                                onclick="toggle_input_type(this, '#bb-pwd')"></i>
+                        </div>
+                        <label for="bb-pwd" id="bb-pwd-cnt" class="control-label col-md-2 col-sm-2 col-xs-2"></label>
+                    </div>
+
+                    <h3>Portal</h3>
+                    <div class="form-group">
+                        <label for="pt-uname"
+                            class="control-label col-md-2 col-md-offset-1 col-sm-2 col-xs-12">Username</label>
+                        <div id="pt-uname-wrap" class="col-md-7 col-sm-8 col-xs-12">
+                            <input type="text" name="pt-uname" id="pt-uname" class="form-control" maxlength="30"
+                                placeholder="Enter Username" value="{{accounts.pt_uname}}" />
+                        </div>
+                        <label for="pt-uname" id="pt-uname-cnt"
+                            class="control-label col-md-2 col-sm-2 col-xs-2"></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="pt-pwd"
+                            class="control-label col-md-2 col-md-offset-1 col-sm-2 col-xs-12">Password</label>
+                        <div id="pt-pwd-wrap" class="col-md-7 col-sm-8 col-xs-12">
+                            <input type="password" name="pt-pwd" id="pt-pwd" class="form-control" maxlength="50"
+                                placeholder="Enter Password" value="{{accounts.pt_pwd}}" />
+                            <i class="fa fa-eye-slash" id="pt-pwd-indi"
+                                onclick="toggle_input_type(this, '#pt-pwd')"></i>
+                        </div>
+                        <label for="pt-pwd" id="pt-pwd-cnt" class="control-label col-md-2 col-sm-2 col-xs-2"></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="pt-lang-switch"
+                            class="control-label col-md-2 col-md-offset-1 col-sm-2 col-xs-12">Language</label>
+                        <div class="pt-lang-switch-wrap col-md-7 col-sm-8 col-xs-12">
+                            <select name="pt-lang" id="pt-lang-switch" class="form-control">
+                                <option value="eng">English</option>
+                                <option value="chi">中文</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <h3>ManageBac</h3>
+                    <div class="form-group">
+                        <label for="mb-uname"
+                            class="control-label col-md-2 col-md-offset-1 col-sm-2 col-xs-12">Username</label>
+                        <div id="mb-uname-wrap" class="col-md-7 col-sm-8 col-xs-12">
+                            <input type="text" name="mb-uname" id="mb-uname" class="form-control" maxlength="30"
+                                placeholder="Enter Username" value="{{accounts.mb_uname}}" />
+                        </div>
+                        <label for="mb-uname" id="mb-uname-cnt"
+                            class="control-label col-md-2 col-sm-2 col-xs-2"></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="mb-pwd"
+                            class="control-label col-md-2 col-md-offset-1 col-sm-2 col-xs-12">Password</label>
+                        <div id="mb-pwd-wrap" class="col-md-7 col-sm-8 col-xs-12">
+                            <input type="password" name="mb-pwd" id="mb-pwd" class="form-control" maxlength="50"
+                                placeholder="Enter Password" value="{{accounts.mb_pwd}}" />
+                            <i class="fa fa-eye-slash" id="mb-pwd-indi"
+                                onclick="toggle_input_type(this, '#mb-pwd')"></i>
+                        </div>
+                        <label for="mb-pwd" id="mb-pwd-cnt" class="control-label col-md-2 col-sm-2 col-xs-2"></label>
+                    </div>
+
+                    <h3>Kognity</h3>
+                    <div class="form-group">
+                        <label for="kog-uname"
+                            class="control-label col-md-2 col-md-offset-1 col-sm-2 col-xs-12">Username</label>
+                        <div id="kog-uname-wrap" class="col-md-7 col-sm-8 col-xs-12">
+                            <input type="text" name="kog-uname" id="kog-uname" class="form-control" maxlength="30"
+                                placeholder="Enter Username" value="{{accounts.kog_uname}}" />
+                        </div>
+                        <label for="kog-uname" id="kog-uname-cnt"
+                            class="control-label col-md-2 col-sm-2 col-xs-2"></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="kog-pwd"
+                            class="control-label col-md-2 col-md-offset-1 col-sm-2 col-xs-12">Password</label>
+                        <div id="kog-pwd-wrap" class="col-md-7 col-sm-8 col-xs-12">
+                            <input type="password" name="kog-pwd" id="kog-pwd" class="form-control" maxlength="50"
+                                placeholder="Enter Password" value="{{accounts.kog_pwd}}" />
+                            <i class="fa fa-eye-slash" id="kog-pwd-indi"
+                                onclick="toggle_input_type(this, '#kog-pwd')"></i>
+                        </div>
+                        <label for="kog-pwd" id="kog-pwd-cnt" class="control-label col-md-2 col-sm-2 col-xs-2"></label>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="btn btn-primary col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2"
+                            onclick="submit_form(1)">Bind Accounts</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

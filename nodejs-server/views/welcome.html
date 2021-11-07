@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/libs/bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <script src="/libs/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet/less" href="/scripts/welcome/index.less">
+
+    <script src="/libs/less/less.min.js"></script>
+
+    <script>
+        $(() => {
+            $('#user-guide').modal('show')
+        })
+    </script>
+</head>
+
+<body>
+
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="user-guide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title">
+                        The <kbd>beta</kbd> version user guides
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <h5><strong>Account Binding</strong></h5>
+                    <p>Binds your accounts in the top right btn.</p>
+                    <hr>
+                    <h5><strong>Left</strong></h5>
+                    <p>The left side integrates the announcements tabs in which you can click into to get notifications from the corresponding website. You will have to bind your accounts before doing so. <strong>The first time you go in, you may see nothing. You should wait until the initialization is finished.</strong> Whenever you want to get the latest notifications, press 'Sync'</p>
+                    <hr>
+                    <h5><b>Top</b></h5>
+                    <p>The top bar integrates two functions only. One for changing account settings and one for logging out, respectively.</p>
+                    <hr>
+                    <h5><i><b>Disclaimer</b></i></h5>
+                    <p>Your account info MAY BE DELETED in future updates. Sign up for another one if this happens.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="alert alert-warning alert-dismissable">
+        The website is still under development, safety of usage not guaranteed
+        <button class="close" data-dismiss="alert" aria-hidden="true">
+            &times;
+        </button>
+    </div>
+
+    <div id="welcome-block">
+        <h1 id="welcome-title" class="text-center">Welcome, {{username}}</h1>
+        <h3 id="welcome-subtitle" class="text-center">Integral Website</h3>
+    </div>
+</body>
+
+</html>

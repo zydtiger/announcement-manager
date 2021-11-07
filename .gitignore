@@ -1,0 +1,8 @@
+buffer/bb/*
+buffer/kog/*
+buffer/mb/*
+buffer/pt/*
+
+db/users/*
+
+nodejs-server/node_modules/

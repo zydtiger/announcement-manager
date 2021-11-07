@@ -1,0 +1,57 @@
+body {
+  background-color: #dddddd;
+  overflow-x: hidden;
+}
+#form-wrap {
+  margin-top: 2%;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 2px 2px 5px 3px #747474;
+  transition: 0.3s ease-in-out;
+}
+#form-wrap:hover {
+  transform: translateY(calc(-5px));
+  box-shadow: 2px 4px 5px 3px #747474;
+}
+#form-wrap i.fa {
+  color: gray;
+  display: inline;
+  position: absolute;
+  float: right;
+  right: 25px;
+  top: 10px;
+}
+#form-wrap #opwd,
+#form-wrap #npwd,
+#form-wrap #npwd-1,
+#form-wrap #bb-pwd,
+#form-wrap #pt-pwd,
+#form-wrap #mb-pwd,
+#form-wrap #kog-pwd {
+  padding-right: 32px;
+}
+#form-wrap #opwd-cnt,
+#form-wrap #npwd-cnt,
+#form-wrap #npwd-1-cnt,
+#form-wrap #bb-pwd-cnt,
+#form-wrap #bb-uname-cnt,
+#form-wrap #pt-pwd-cnt,
+#form-wrap #pt-uname-cnt,
+#form-wrap #mb-pwd-cnt,
+#form-wrap #mb-uname-cnt,
+#form-wrap #kog-pwd-cnt,
+#form-wrap #kog-uname-cnt {
+  text-align: left;
+  padding-left: 0;
+}
+#form-wrap span {
+  color: #2697bd;
+  transition: 0.1s ease-in-out;
+}
+#form-wrap span:hover {
+  color: #1f7b99;
+  text-decoration: underline;
+}
+#form-wrap span:active {
+  transform: translateY(3px);
+}

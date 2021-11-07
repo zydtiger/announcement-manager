@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Annoucement Tool :&#41;</title>
+    <!-- setting favicon -->
+    <link rel="shortcut icon" href="/public/favicon.ico">
+    <link rel="bookmark" href="/public/favicon.ico">
+
+    <!-- include bootstrap & font-awesome -->
+    <link rel="stylesheet" href="/libs/bootstrap-3.4.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/libs/font-awesome-4.7.0/css/font-awesome.css">
+
+    <!-- include jquery & vue -->
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+    <script src="/libs/vue/vue.js"></script>
+
+    <!-- custome scripts -->
+    <link rel="stylesheet/less" href="/scripts/index/main.less">
+    <link rel="stylesheet/less" href="/scripts/index/iframe.less">
+    <link rel="stylesheet/less" href="/scripts/index/top_bar.less">
+    <script src="/scripts/index/index.js"></script>
+    <script src="/scripts/index/anim.js"></script>
+
+    <!-- include less.js at last -->
+    <script src="/libs/less/less.js"></script>
+</head>
+
+<body>
+    <!-- reactive vertical menu that lists the features
+        each guides to new page
+    default is bb notifications -->
+    <!-- top bar for simple functions -->
+
+    <div class="top-bar">
+        <div id="toggle-menu" class="top-btn btn btn-default" onclick="toggle_menu()">
+            <i class="fa fa-arrow-left"></i>
+        </div>
+
+        <h4>Integral Website</h4>
+
+        <a id="logout" class="top-btn top-btn-right btn btn-default" href="/logout">
+            <i class="fa fa-power-off"></i>
+        </a>
+        <div id="settings" class="top-btn top-btn-right btn btn-default" onclick="$('iframe').attr('src', '/settings?index=true')">
+            <i class="fa fa-user-o"></i>
+        </div>
+
+    </div>
+
+    <div class="main">
+        <!-- Annoucements -->
+        <ul id="announcement">
+            <li class="announcement title">Annoucements <i class="fa fa-envelope-open-o"></i></li>
+            <li class="item item-vcenter" @click="expand('#bb-submenu', $event)">
+                <span class="fa fa-caret-right"></span>
+                <span class="subtitle">Blackboard</span>
+            </li>
+            <ul id="bb-submenu" class="submenu">
+                <li class="item item-second" @click="chg_content('bb')">Announcements</li>
+                <li class="item item-second" @click="chg_content_url('https://shs.blackboardchina.cn/webapps/calendar/viewPersonal')">Calendar</li>
+            </ul>
+            <li class="item item-vcenter" @click="chg_content('portal')">
+                <span class="subtitle">Portal</span>
+            </li>
+            <li class="item item-vcenter" @click="chg_content('managebac')">
+                <span class="subtitle">ManageBac</span>
+            </li>
+            <li class="item item-vcenter" @click="chg_content('kognity')">
+                <span class="subtitle">Kognity</span>
+            </li>
+            <br>
+            <!-- <li class="item"><i class="fa fa-flag-o"></i> Pending Todos
+                <div class="progress" style="height: 5px;">
+                    <div class="progress-bar" style="width: 10%;">
+                    </div>
+                </div>
+            </li> -->
+        </ul>
+
+        <!-- Todo list overview -->
+        <!-- <ul class="todo-overview">
+            <li class="overview title">Overview <i class="fa fa-hourglass-half"></i></li>
+            <li class="item">
+                <i class="fa fa-inbox"></i> Future
+                <div class="progress" style="height: 5px;">
+                    <div class="progress-bar" style="width: 10%;">
+                    </div>
+                </div>
+            </li><br>
+            <li class="item"><i class="fa fa-star"></i> Today
+                <div class="progress" style="height: 5px;">
+                    <div class="progress-bar" style="width: 10%;">
+                    </div>
+                </div>
+            </li>
+            <li class="item"><i class="fa fa-calendar"></i> Planned
+                <div class="progress" style="height: 5px;">
+                    <div class="progress-bar" style="width: 10%;">
+                    </div>
+                </div>
+            </li>
+            <li class="item"><i class="fa fa-tasks"></i> Temporary
+                <div class="progress" style="height: 5px;">
+                    <div class="progress-bar" style="width: 10%;">
+                    </div>
+                </div>
+            </li>
+            <li class="item"><i class="fa fa-archive"></i> All
+                <div class="progress" style="height: 5px;">
+                    <div class="progress-bar" style="width: 10%;">
+                    </div>
+                </div>
+            </li>
+        </ul> -->
+
+        <!-- Separate list -->
+        <!-- <ul id="todo-lists">
+            <li class="lists title">Lists <i class="fa fa-list-alt"></i></li>
+            <li v-for="list in lists" class="item">
+                ${list.title}
+                <div class="progress" style="height: 5px;">
+                    <div :class="['progress-bar', { 'progress-bar-danger': list.percent<25, 'progress-bar-warning': list.percent<50, 'progress-bar-info': list.percent<75, 'progress-bar-success': list.percent<100 }]"
+                        :style="{ width: list.percent + '%' }">
+                    </div>
+                </div>
+            </li>
+            <li class="add-list text-center" @click="add_list">+</li>
+        </ul> -->
+    </div>
+
+    <div class="hide-menu" onclick="toggle_menu()"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="add-tag-wrap col-md-4 col-md-offset-4">
+                <form action="/add_tag" method="post">
+                    asdfasdf
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- The place to display the grabbed notifications -->
+    <iframe src="/welcome"></iframe>
+
+</body>
+
+</html>

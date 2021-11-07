@@ -1,0 +1,31 @@
+@import 'main';
+
+@bar_height: 40px;
+
+.top-bar {
+    position: fixed;
+    width: 100vw;
+    height: @bar_height;
+    background-color: @background;
+    border-right: 1px solid @shadow;
+    box-shadow: 2px 0 10px 0 @shadow;
+    z-index: 5;
+
+    h4 {
+        position: absolute;
+        display: inline-block;
+        top: 2px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .top-btn-right {
+        float: right;
+    }
+
+    .top-btn {
+        margin: calc(@bar_height / 2) 4px;
+        transform: translateY(-50%);
+    }
+
+}

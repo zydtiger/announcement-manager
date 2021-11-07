@@ -1,0 +1,229 @@
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #969696;
+  border-radius: 2px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #7a7a7a;
+}
+.main {
+  overflow-y: scroll;
+  position: fixed;
+  left: -250px;
+  top: 40px;
+  height: calc(100vh - 40px);
+  width: 250px;
+  background-color: #ececec;
+  border-right: 1px solid gray;
+  box-shadow: 2px 0 10px 0 gray;
+  z-index: 3;
+  transition: 0.4s;
+  padding: 30px;
+}
+.main ul {
+  user-select: none;
+  list-style-type: none;
+  padding: 0;
+}
+.main ul + ul {
+  border-top: 1px solid gray;
+}
+.main #announcement {
+  margin-bottom: 50px;
+}
+.main #announcement .subtitle {
+  display: inline-block;
+  left: 45px;
+  position: absolute;
+}
+.main li {
+  box-sizing: border-box;
+  display: block;
+  transition: 0.2s;
+  border-radius: 5px;
+}
+.main .item {
+  padding: 5px 5px;
+  font-size: 15px;
+  height: 40px;
+}
+.main .item .fa {
+  transition: 0.1s linear;
+  transform: rotate(0deg);
+}
+.main .item:hover {
+  background-color: #d2d2d2;
+}
+.main .item-second {
+  padding: 7px 13px;
+  height: 30px;
+  font-size: 13px;
+}
+.main .item-vcenter {
+  padding-top: 10px;
+}
+.main .add-list {
+  padding: 6px;
+  font-size: 20px;
+  border: 1px solid gray;
+}
+.main .add-list:hover {
+  background-color: #d2d2d2;
+}
+.main .title {
+  padding: 10px 5px;
+  text-transform: uppercase;
+  color: gray;
+  font-size: 16px;
+  border-radius: 0;
+  border-bottom: 1px solid gray;
+}
+.main .title .fa {
+  margin-top: 2.7px;
+  float: right;
+}
+.hide-menu {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+}
+.top-bar {
+  position: fixed;
+  width: 100vw;
+  height: 40px;
+  background-color: #ececec;
+  border-right: 1px solid gray;
+  box-shadow: 2px 0 10px 0 gray;
+  z-index: 5;
+}
+.top-bar h4 {
+  position: absolute;
+  display: inline-block;
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.top-bar .top-btn-right {
+  float: right;
+}
+.top-bar .top-btn {
+  margin: calc(40px / 2) 4px;
+  transform: translateY(-50%);
+}
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #969696;
+  border-radius: 2px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #7a7a7a;
+}
+.main {
+  overflow-y: scroll;
+  position: fixed;
+  left: -250px;
+  top: 40px;
+  height: calc(100vh - 40px);
+  width: 250px;
+  background-color: #ececec;
+  border-right: 1px solid gray;
+  box-shadow: 2px 0 10px 0 gray;
+  z-index: 3;
+  transition: 0.4s;
+  padding: 30px;
+}
+.main ul {
+  user-select: none;
+  list-style-type: none;
+  padding: 0;
+}
+.main ul + ul {
+  border-top: 1px solid gray;
+}
+.main #announcement {
+  margin-bottom: 50px;
+}
+.main #announcement .subtitle {
+  display: inline-block;
+  left: 45px;
+  position: absolute;
+}
+.main li {
+  box-sizing: border-box;
+  display: block;
+  transition: 0.2s;
+  border-radius: 5px;
+}
+.main .item {
+  padding: 5px 5px;
+  font-size: 15px;
+  height: 40px;
+}
+.main .item .fa {
+  transition: 0.1s linear;
+  transform: rotate(0deg);
+}
+.main .item:hover {
+  background-color: #d2d2d2;
+}
+.main .item-second {
+  padding: 7px 13px;
+  height: 30px;
+  font-size: 13px;
+}
+.main .item-vcenter {
+  padding-top: 10px;
+}
+.main .add-list {
+  padding: 6px;
+  font-size: 20px;
+  border: 1px solid gray;
+}
+.main .add-list:hover {
+  background-color: #d2d2d2;
+}
+.main .title {
+  padding: 10px 5px;
+  text-transform: uppercase;
+  color: gray;
+  font-size: 16px;
+  border-radius: 0;
+  border-bottom: 1px solid gray;
+}
+.main .title .fa {
+  margin-top: 2.7px;
+  float: right;
+}
+.hide-menu {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+}
